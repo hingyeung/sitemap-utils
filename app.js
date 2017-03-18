@@ -1,9 +1,6 @@
-var SitemapParser = require('./lib/sitemap_parser');
-var request = require('request');
-var async = require('async');
-var parseXML = require('xml2js').parseString;
+'use strict';
 
-var sitemapParser = SitemapParser(request, async, parseXML);
+var sitemapParser = require('./lib/sitemap_parser');
 
 var argv = process.argv;
 if (argv.length != 3) {
