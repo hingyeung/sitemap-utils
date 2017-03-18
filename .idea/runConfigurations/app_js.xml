@@ -1,0 +1,9 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="app.js" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="$USER_HOME$/.nvm/versions/node/v6.9.5/bin/node" path-to-js-file="app.js" working-dir="$PROJECT_DIR$">
+    <envs>
+      <env name="DEBUG" value="sitemap-report:*" />
+    </envs>
+    <browser url="http://localhost:3000/" />
+    <method />
+  </configuration>
+</component>
