@@ -2,8 +2,7 @@
 
 module.exports = function (grunt) {
     var path = require('path');
-    //var fs = require('fs');
-    //var _ = require('lodash');
+
 
     // Load grunt tasks automatically
     require('load-grunt-tasks')(grunt);
@@ -48,6 +47,30 @@ module.exports = function (grunt) {
             }
         }
     });
+
+    grunt.registerTask(
+        'getUrlsInSitemap',
+        'Get all URLs from a sitemap. Use --sitemapUrl=<sitemap_url> to specify url to download sitemap. Index sitemap supported.',
+        function () {
+            var sitemapUrl = grunt.option('sitemapUrl'),
+                sitemapParser = require('./lib/sitemap_parser'),
+                done = this.async();
+
+            if (!sitemapUrl) {
+                console.log('Use --sitemapUrl=<sitemap_url> to specify url to download sitemap.');
+                return;
+            }
+
+            sitemapParser.parse(sitemapUrl, function (err, data) {
+                if (err) {
+                    console.log(err.message);
+                } else {
+                    console.log(data);
+                    console.log(data.length);
+                }
+                done();
+            });
+        });
 
     grunt.registerTask('test', 'Run tests and coverage, --grep "test descriptions matching regex" and --files available', ['mocha_istanbul:noThreshold']);
 
