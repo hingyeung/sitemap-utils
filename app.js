@@ -10,6 +10,10 @@ if (argv.length != 3) {
 
 var url = argv[2];
 sitemapParser.parse(url, function(err, data) {
-    console.log(data);
-    console.log(data.length);
+    if (err) {
+        console.log(err.message);
+    } else {
+        console.log(data);
+        console.log(data.length);
+    }
 });
